@@ -20,19 +20,21 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
    var emojifiedText = text;
     emojifiedText = emojifiedText.replace(/\blol\b/ig, "😂");
     emojifiedText = emojifiedText.replace(/\bcat\b/ig, "😸");
+    emojifiedText = emojifiedText.replace(/\b987654321\b/ig, "numero oculto");
     return emojifiedText;
  }
 
- exports.clasificar = functions.database.ref("/messages/{pushId}/number").onCreate(myHandler =>{
+ /*exports.clasificar = functions.database.ref("/messages/{pushId}/number").onCreate(myHandler =>{
    console.log("ocultando tlf..");
    var originalData = myHandler.val();
    var tlfFieldData = tlfText(originalData);
 
-   return myHandler2.ref.set(tlfFieldData); //devuelve null o concreto, o promesa
+   return myHandler.ref.set(tlfFieldData); //devuelve null o concreto, o promesa
  })
 
  function tlfText(text){
    var tlfFiedText = text;
-    tlfFiedText = tlfFiedText.replace(/\b\d\d\d\d\d\d\d\d\d\b/ig, "#########");
+    //tlfFiedText = tlfFiedText.replace(/\b\d\d\d\d\d\d\d\d\d\b/ig, "#########");
+    tlfFiedText = tlfFiedText.replace(/\b987654321\b/ig, "numero oculto");
     return tlfFiedText;
- }
+ }*/
